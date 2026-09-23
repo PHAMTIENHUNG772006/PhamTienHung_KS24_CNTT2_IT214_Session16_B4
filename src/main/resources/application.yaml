@@ -1,0 +1,25 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: Session16_B4
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000 # 10 minutes in ms
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: "b4_ecommerce:"
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      connect-timeout: 2000ms
+
+logging:
+  level:
+    com.res.session16_b4: DEBUG
+    org.springframework.cache: DEBUG
+    org.springframework.data.redis: DEBUG
